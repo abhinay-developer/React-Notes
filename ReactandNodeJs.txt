@@ -1,0 +1,406 @@
+Component Based Application
+===========================
+
+1)React is Declarative
+   Tell React you want and React will build the actual UI
+
+
+To create React-App
+===================
+npx create-react-app <hello-world>
+npx=>npm package runner
+npm=>node package manager
+
+To Run React-App
+=================
+npm start
+
+package.json
+==============
+dependencies
+
+Component Types
+================
+1)Stateless Functional Component
+2)Stateful Class Component
+
+key
+====
+1)A key is special string attribute  you need to include when creating list of components.
+2)key give the elements to stable identity.
+3)Key help React Identify which items has changed,are added or removed.
+3)This helps efficient update of the user interface.
+
+Index as key
+=============
+1.The items in your list  do not have a unique Id.
+2.The list is static list and will not change.
+3.The List will be never reordred or filtered.
+
+Styling React
+===============
+1.CSS Stylesheets.
+2.Inline Styling.
+3.CSS Modules.
+4.CSS In JS Libraries
+
+
+2.Inline Styling
+=================
+Use Camel Case
+
+Life cycle Methods In ClassComponent
+====================================
+1)Mounting
+---------------
+When an instance of a component is being created and inserted in the DOM
+
+   a)constructor()
+         a special function that will get called whenever new component is created
+      Constructor usage
+      -----------------
+      i)    Intalizing the state
+      ii)   Binding the event Handlers
+      iii)  Do not cause side Effects EX::Http Requests
+      iv)   super(props)   Directly overwrite this.state
+   
+
+   b)static getDerivedStateFromProps(props,state)
+
+       i)When the state of component depends on changes in proper overtime.
+       ii)Set the state.
+       iii)Do not cause side effects Ex:: Http Requests
+
+
+   c)render()
+
+       i)Only required method on class component. 
+       ii)Reads props and state and return JSX.
+       iii) Do not change the state or interact with DOM or make ajax calls.
+       iv)Childern Components of Lifecycle method alse executed.
+
+   d)componentDidMount()
+
+        i)Invoked immediatly after a component all its children components are rendered to the DOM.
+        ii)Cause Side Effects:Interact with DOM or perform any ajax calls to load data.
+  2)Updating
+  -----------
+     When a component is being re-rendered as a result of changes to ether its props or state.
+
+   a)static getDerivedStateProps(props,state)
+      i)Method is called every time a component is re-rendered
+      ii)Set the state
+      iii)Do not cause side effects:Ex:Http Requests
+
+   b)shouldComponentUpdate(nextProps,nextState)
+      i)Dicates if the component should re-rendered or not.
+      ii)Performance Optimization.
+      iii)Do not cause side effects :Ex:Http Request  calling the setState() method.
+
+   c)render()
+       i)Only required method on class component. 
+       ii)Reads props and state and return JSX.
+       iii) Do not change the state or interact with DOM or make ajax calls.
+
+   d)getSnapshotBeforeUpdate(nextProps,nextState)
+       (i)   Calling right before the changes from the virtual DOM are to be reflected in the DOM.
+       (ii)  Capture some information form the DOM.
+       (iii) Method will either return null or return a value Returned value will be passed
+             as the third parameter to next method. 
+      
+   e)componentDidUpdate(prevProps,prevSate,snapshot)
+      (i)  Called after the render is finished in the render-cycles.
+      (ii) Cause side effects
+
+3)Unmounting
+-------------
+When a component is removed from the DOM
+
+      a)componentWillUnmount()
+        (i)  Method is invoked immediatly before a component is unmounted or destroyed.
+        (ii) Cancelling any network reqests, removing event handlers , cancelling the subscription
+             ans invalidating timers.
+        (iii)Do not call the setState()Method.
+          
+
+4)Error Handling
+----------------
+When there is an error rendering ,in lifecycle method or in constructor in child component
+
+       a)static getDerivedStateFromError(error)
+       b)componentDidCatch(error,info)
+
+     Where there is an error either during rendering, in a lifecycle method,or in the constructor of
+     any child component.
+
+Fragments
+==========
+Fragements are used to avoid extra nodes to the DOM.
+<React.Fragement>
+
+</React.Fragement>
+
+
+PureComponent
+-------------
+A pure component  implements  shouldComponentUpdate with shallow  prop and state comparision
+Pure Components in React are the components which do not re-renders
+ when the value of state and props has been updated with the same values.
+ If the value of the previous state or props and the new state or props is 
+the same, the component is not re-rendered.
+
+Memo
+======
+React.memo(MemoComp);
+
+
+
+
+JENKINS
+DOCKER
+KUBERNETES
+NODE JS
+REACT
+TYPESCRIPT
+SAPPHIR
+REST API
+
+
+
+Node JS
+========
+2009 Ryan Dhal
+
+Node JS is Java time runtime.
+
+V8 Engine in Chrome,Chakra in IE or Edge,SpiderMonkey in Morzilla Firefox
+
+PAYPAL
+NETFLIX
+UBER 
+LINKED IN
+EBAY
+MORZILLA
+MICROSOFT
+IBM
+
+=>var is functional Scope
+=>rest opeartor is used to form a single array in function declaration
+=>spread operator is used to spread the array in function call
+
+
+Node JS Global Objects
+=======================
+
+Node.js has a number of built in global objects.
+
+Global Objects
+--------------
+__dirname
+__filename
+console.log();
+setInterval(()=>{},timeout)
+setTimeout(()=>{},timeout)
+
+Exporting module
+===============
+module.export
+
+Ex: let a=10;  module.export.a=a;
+
+importing module
+=================
+var data=require('./node1.js');
+
+HTTP Methods
+------------
+ METHODS: [
+    'ACL',         'BIND',       'CHECKOUT',
+    'CONNECT',     'COPY',       'DELETE',
+    'GET',         'HEAD',       'LINK',
+    'LOCK',        'M-SEARCH',   'MERGE',
+    'MKACTIVITY',  'MKCALENDAR', 'MKCOL',
+    'MOVE',        'NOTIFY',     'OPTIONS',
+    'PATCH',       'POST',       'PROPFIND',
+    'PROPPATCH',   'PURGE',      'PUT',
+    'REBIND',      'REPORT',     'SEARCH',
+    'SOURCE',      'SUBSCRIBE',  'TRACE',
+    'UNBIND',      'UNLINK',     'UNLOCK',
+    'UNSUBSCRIBE'
+  ],
+
+HTTP STATUS CODES:
+--------------------
+ STATUS_CODES: {
+    '100': 'Continue',
+    '101': 'Switching Protocols',
+    '102': 'Processing',
+    '103': 'Early Hints',
+    '200': 'OK',
+    '201': 'Created',
+    '202': 'Accepted',
+    '203': 'Non-Authoritative Information',
+    '204': 'No Content',
+    '205': 'Reset Content',
+    '206': 'Partial Content',
+    '207': 'Multi-Status',
+    '208': 'Already Reported',
+    '226': 'IM Used',
+    '300': 'Multiple Choices',
+    '301': 'Moved Permanently',
+    '302': 'Found',
+    '303': 'See Other',
+    '304': 'Not Modified',
+    '305': 'Use Proxy',
+    '307': 'Temporary Redirect',
+    '308': 'Permanent Redirect',
+    '400': 'Bad Request',
+    '401': 'Unauthorized',
+    '402': 'Payment Required',
+    '403': 'Forbidden',
+    '404': 'Not Found',
+    '405': 'Method Not Allowed',
+    '406': 'Not Acceptable',
+    '407': 'Proxy Authentication Required',
+    '408': 'Request Timeout',
+    '409': 'Conflict',
+    '410': 'Gone',
+    '411': 'Length Required',
+    '412': 'Precondition Failed',
+    '413': 'Payload Too Large',
+    '414': 'URI Too Long',
+    '415': 'Unsupported Media Type',
+    '416': 'Range Not Satisfiable',
+    '417': 'Expectation Failed',
+    '418': "I'm a Teapot",
+    '421': 'Misdirected Request',
+    '422': 'Unprocessable Entity',
+    '423': 'Locked',
+    '424': 'Failed Dependency',
+    '425': 'Too Early',
+    '426': 'Upgrade Required',
+    '428': 'Precondition Required',
+    '429': 'Too Many Requests',
+    '431': 'Request Header Fields Too Large',
+    '451': 'Unavailable For Legal Reasons',
+    '500': 'Internal Server Error',
+    '501': 'Not Implemented',
+    '502': 'Bad Gateway',
+    '503': 'Service Unavailable',
+    '504': 'Gateway Timeout',
+    '505': 'HTTP Version Not Supported',
+    '506': 'Variant Also Negotiates',
+    '507': 'Insufficient Storage',
+    '508': 'Loop Detected',
+    '509': 'Bandwidth Limit Exceeded',
+    '510': 'Not Extended',
+    '511': 'Network Authentication Required'
+  },
+
+
+Working with HTTP Module
+=========================
+let http=require('http');
+// console.log(http);
+const PORT=3000;
+
+let server=http.createServer(function(req,res){
+   res.writeHead(200,{'Content-Type':'text/html'});
+   res.write('<h1 style="color:red">Welcome to Node JS<h1>');
+   res.end();
+
+})
+server.listen(PORT,()=>console.log(`Server Listening On the Port Number ${PORT}`));
+
+Nodemon
+========
+
+Installing Nodemon
+------------------
+npm install -g  nodemon
+
+run app using nodemon
+---------------------
+nodemon <filename>  ex:nodemon index
+
+Automatically pickup changes in the server and automatically restarts the server.
+
+
+Events Module
+================
+
+let events=require('events');
+
+
+ZLIB Module
+==================
+compressing and decompressing the operations.
+
+let zlib=require('zlib')
+
+
+URL Module
+=============
+let url=require('url');
+
+
+Path Module
+==============
+let path=require('path');
+
+
+create package.json
+====================
+
+npm init
+npm init --yes   (npm init -h)description
+
+
+
+
+Installing node packages
+=========================
+npm install -g nodemon (Global)
+npm install  nodemon 
+
+npm install  nodemon --save-dev  (developer depedencies)
+npm install  nodemon (production)
+
+
+npm uninstall  nodemon --save-dev  (developer depedencies)
+npm unistall  nodemon (production)
+
+
+npm list-g
+
+Query String Module
+========================
+
+let queryString=require('queryString');
+
+working with mongoose
+=======================
+npm install mongoose
+
+let mongoose=require('mongoose');
+
+working with formidable(for file uploading)
+==========================================
+npm install formidable
+
+working with nodemailer module(for sending mails)
+=================================================
+
+npm install nodemailer
+
+working with express js
+========================
+npm install -g express
+
+JSON SERVERS
+============
+npm install -g json-server
+
+
+
+
